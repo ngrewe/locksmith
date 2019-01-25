@@ -1,0 +1,5 @@
+locksmith (0.6.1-1) unstable; urgency=medium
+
+  * Packaged locksmithd
+
+ -- Niels Grewe <niels.grewe@futuretv-group.com>  Thu, 07 Dec 2017 11:32:22 +0100

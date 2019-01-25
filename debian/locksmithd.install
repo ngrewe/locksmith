@@ -1,0 +1,3 @@
+systemd/locksmithd.service lib/systemd/system/
+bin/locksmithctl usr/bin/
+debian/update.conf etc/coreos/
