@@ -1,6 +1,8 @@
 locksmith for Debian
 -------------------
 
-<possible notes regarding this package - if none, delete this file>
+Locksmithd for Debian requires the update-broker package,
+which takes the place of CoreOS' update-engine in order
+to signal to locksmithd that a reboot is required.
 
- -- boss <boss@unknown>  Thu, 07 Dec 2017 11:32:22 +0100
+ -- Niels Grewe <niels.grewe@futuretv-group.com>  Thu, 07 Dec 2017 11:32:22 +0100
