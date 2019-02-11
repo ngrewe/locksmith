@@ -1,15 +1,15 @@
 Source: locksmith
 Section: admin
 Priority: optional
-Maintainer: Niels Grewe <niels.grewe@futuretv-group.com>
+Maintainer: Niels Grewe <niels.grewe@halbordnung.de>
 Build-Depends: debhelper (>=9), dh-systemd (>=1.5), golang-any
 Standards-Version: 3.9.6
 Homepage: https://github.com/coreos/locksmith
-#Vcs-Git: git://anonscm.debian.org/collab-maint/locksmith.git
-#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/locksmith.git
+Vcs-Git: https://github.com/coreos/locksmith.git
 
 Package: locksmithd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, systemd, dbus, update-broker
 Description: Cluster Reboot Manager
- <insert long description, indented with spaces>
+ locksmith is a reboot manager which is able to use etcd to ensure that
+ only a subset of a cluster of machines are rebooting at any given time.
