@@ -1,5 +1,12 @@
 locksmith (0.6.2-1) unstable; urgency=medium
 
+  * Upstream update
+  * Debian packaging rework
+
+ -- Niels Grewe <niels.grewe@halbordnung.de>  Mon, 11 Feb 2019 06:22:00 +0100
+
+locksmith (0.6.1-1) unstable; urgency=medium
+
   * Packaged locksmithd
 
  -- Niels Grewe <niels.grewe@futuretv-group.com>  Thu, 07 Dec 2017 11:32:22 +0100
