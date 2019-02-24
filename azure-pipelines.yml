@@ -1,0 +1,31 @@
+---
+resources:
+  containers:
+    - container: xenial
+      image: 'glaux/locksmith-build-deps:16.04'
+    - container: bionic
+      image: 'glaux/locksmith-build-deps:18.04'
+jobs:
+- job: release
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  strategy:
+    matrix:
+      xenial:
+        containerResource: xenial
+      bionic:
+        containerResource: bionic
+  container: $[ variables['containerResource'] ]
+  steps:
+    - script: gbp buildpackage --git-pristine-tar --git-upstream-tag='v%(version)s' --git-debian-branch=debian --git-builder="/usr/bin/debuild -uc -us"  --git-export-dir=/tmp/locksmith
+      displayName: Build package
+    - task: CopyFiles@2
+      inputs:
+        contents: '/tmp/locksmith/*.deb'
+        targetFolder: $(Build.ArtifactStagingDirectory)
+      displayName: 'Copy package'
+    - task: PublishBuildArtifacts@1
+      inputs:
+        artifactName: $(containerResource)
+        displayName: 'Upload artifacts'
+
