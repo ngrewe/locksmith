@@ -17,9 +17,9 @@ jobs:
         containerResource: bionic
   container: $[ variables['containerResource'] ]
   steps:
-    - script: rm azure-pipelines.yml && git checkout -b pristine-tar origin/pristine-tar && git checkout -b $(Build.SourceBranchName) origin/$(Build.SourceBranchName)
+    - script: git checkout -b pristine-tar origin/pristine-tar && git checkout -b $(Build.SourceBranchName) origin/$(Build.SourceBranchName)
       displayName: Move into gbp compatible environment
-    - script: gbp buildpackage --git-pristine-tar --git-upstream-tag='v%(version)s' --git-debian-branch=debian --git-builder="/usr/bin/debuild -uc -us"  --git-export-dir=/tmp/locksmith
+    - script: gbp buildpackage --git-pristine-tar --git-upstream-tag='v%(version)s' --git-debian-branch=debian --git-builder="/usr/bin/debuild -uc -us"  --git-export-dir=/tmp/locksmith && ls -R /tmp/locksmith && ls /tmp/*.deb
       displayName: Build package
     - task: CopyFiles@2
       inputs:
