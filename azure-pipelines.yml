@@ -17,6 +17,8 @@ jobs:
         containerResource: bionic
   container: $[ variables['containerResource'] ]
   steps:
+    - script: git status && git checkout $(Build.SourceBranchName)
+      displayName: Move into gbp compatible environment
     - script: gbp buildpackage --git-pristine-tar --git-upstream-tag='v%(version)s' --git-debian-branch=debian --git-builder="/usr/bin/debuild -uc -us"  --git-export-dir=/tmp/locksmith
       displayName: Build package
     - task: CopyFiles@2
